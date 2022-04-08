@@ -49,3 +49,26 @@ test('Team addAll and toArray', () => {
 
   expect(team.membersArr).toEqual(expected);
 });
+
+// Тесты для Дз №11
+describe('Test for HW №11', () => {
+  const teamOne = new Team();
+  teamOne.addAll(alex, vova);
+
+  test.each([alex, vova])('iterators next', (expected) => {
+    expect(teamOne.next().value).toEqual(expected);
+  });
+
+  test('iterators loops', () => {
+    const teamTwo = new Team();
+    teamTwo.addAll(alex, vova);
+    const expected = [alex, vova];
+    const result = [];
+
+    for (const person of teamTwo) {
+      result.push(person);
+    }
+
+    expect(result).toEqual(expected);
+  });
+});
