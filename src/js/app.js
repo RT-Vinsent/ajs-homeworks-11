@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import Team from './modules/team';
+import TeamGenerator from './modules/teamGenerator';
 
 const alex = {
   name: 'ALex',
@@ -28,6 +29,8 @@ const dima = {
   level: 1,
 };
 
+// Символы & итераторы
+console.log('\n Символы & итераторы \n');
 const teamOne = new Team();
 console.log('Команда teamOne создана');
 
@@ -52,3 +55,33 @@ console.log('следующий из teamTwo');
 
 console.log(teamTwo.next());
 console.log('следующий из teamTwo');
+
+// Символы и генераторы
+console.log('\n Символы и генераторы \n');
+const teamThree = new TeamGenerator();
+console.log('Команда teamThree создана');
+
+teamThree.addAll(alex, dima);
+console.log('В команду teamThree добавлены: ALex и Dima');
+
+for (const person of teamThree) {
+  console.log(person);
+}
+
+const teamFour = new TeamGenerator();
+console.log('Команда teamFour создана');
+
+teamFour.addAll(alex, vova);
+console.log('В команду teamFour добавлены: ALex и Vova');
+
+const gen = teamFour[Symbol.iterator]();
+console.log('генератор teamFour сохранён для запуска метода next()');
+
+console.log(gen.next());
+console.log('первый из teamFour');
+
+console.log(gen.next());
+console.log('следующий из teamFour');
+
+console.log(gen.next());
+console.log('следующий из teamFour');
