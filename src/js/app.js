@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import Team from './modules/team';
 import TeamGenerator from './modules/teamGenerator';
+import canIterate from './modules/canIterate';
 
 const alex = {
   name: 'ALex',
@@ -30,7 +31,7 @@ const dima = {
 };
 
 // Символы & итераторы
-console.log('\n Символы & итераторы \n');
+console.log('\n Символы & итераторы');
 const teamOne = new Team();
 console.log('Команда teamOne создана');
 
@@ -57,7 +58,7 @@ console.log(teamTwo.next());
 console.log('следующий из teamTwo');
 
 // Символы и генераторы
-console.log('\n Символы и генераторы \n');
+console.log('\n Символы и генераторы');
 const teamThree = new TeamGenerator();
 console.log('Команда teamThree создана');
 
@@ -85,3 +86,16 @@ console.log('следующий из teamFour');
 
 console.log(gen.next());
 console.log('следующий из teamFour');
+
+// Генераторы (задача со звёздочкой)
+console.log('\n Генераторы (задача со звёздочкой)');
+console.log(canIterate(new Map()));
+console.log('new Map() = true');
+console.log(canIterate(new Set()));
+console.log('new Set() = true');
+console.log(canIterate(null));
+console.log('null = false');
+console.log(canIterate(10));
+console.log('10 = false');
+console.log(canIterate('Netology'));
+console.log('Netology = true');
